@@ -3,8 +3,8 @@ import { useState } from "react";
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 import FromInput from "../form-input/form-input.component";
 
-import './sign-up-form.styles.scss';
-import Button from "../button/button.component";
+import {SignUpButton, SignUpContainer,SignUpContainerForm, SignUpTitle} from './sign-up-form.styles.jsx';
+
 
 const formFieldsDefault = {
     displayName: '',
@@ -37,7 +37,7 @@ const SignUpForm = () => {
 
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password);
-            const userDoc = await createUserDocumentFromAuth(user, { displayName });
+            await createUserDocumentFromAuth(user, { displayName });
             resetDefaultFormFields();
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
@@ -49,19 +49,19 @@ const SignUpForm = () => {
     };
 
     return (
-        <div className="sign-up-container">
-            <h2>Don't have an account?</h2>
+        <SignUpContainer>
+            <SignUpTitle>Don't have an account?</SignUpTitle>
             <span>Sign up with your email and password </span>
-            <form onSubmit={handleSubmit}>
+            <SignUpContainerForm onSubmit={handleSubmit}>
 
                 <FromInput  label="Display Name" type="text" value={displayName} onChange={handleChange} name="displayName" required />
                 <FromInput  label="Email" type="email" value={email} onChange={handleChange} name="email" required />
                 <FromInput  label="Password" type="password" value={password} onChange={handleChange} name="password" required />
                 <FromInput  label="Confirm Password" type="password" value={confirmPassword} onChange={handleChange} name="confirmPassword" required />
                 
-                <Button type="submit">Sign Up</Button>
-            </form>
-        </div>
+                <SignUpButton type="submit">Sign Up</SignUpButton>
+            </SignUpContainerForm>
+        </SignUpContainer>
     )
 };
 
