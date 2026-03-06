@@ -4,7 +4,7 @@ import {CategoryPreviewContainer, Preview, Title} from './category-preview.style
 
 const CategoryPreview = ({ title, products }) => {
   return (
-    <CategoryPreviewContainer>
+    <CategoryPreviewContainer key={title}>
       <h2>
         <Title to={title.toLowerCase()}>{title.toUpperCase()}</Title>
       </h2>

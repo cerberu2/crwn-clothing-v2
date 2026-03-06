@@ -6,13 +6,13 @@ export const BackgroundImage = styled.div`
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+    background-image: ${({$imageUrl }) => `url(${$imageUrl})`};
 
     &:hover {
       transform: scale(1.1);
       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
-`
+`;
 
 export const Body = styled.div`
     height: 90px;
@@ -42,7 +42,7 @@ export const Body = styled.div`
     &:hover {
       opacity: 0.9;
     }
-`
+`;
 
 
 export const DirectoryItemContainer = styled.div`
@@ -76,4 +76,4 @@ export const DirectoryItemContainer = styled.div`
     &:last-child {
         margin-left: 7.5px;
     }
-`
+`;
