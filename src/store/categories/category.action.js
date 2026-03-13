@@ -14,6 +14,6 @@ export const fetchCategoriesFailed = (error) => {
     return createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED, error);
 }
 
-export const setCategoriesMap = (categoriesMap) => {
-    return createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES_MAP, categoriesMap);
+export const setCategories = (categories) => {
+    return createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES, categories);
 }   
